@@ -20,18 +20,6 @@ const isAndroid = () => {
 
 //*********** 判断格式 *********
 
-// 判断是否是JSON字符串
-const isJsonString = str => {
-	try {
-		if (typeof JSON.parse(str) == 'object') {
-			return true
-		}
-	} catch (err) {
-		console.error(err)
-		return false
-	}
-}
-
 // 判断手机号是否合法
 const isPhoneLegal = val => {
 	const re = /^(13[0-9]|14[579]|15[0-3,5-9]|16[6]|17[0135678]|18[0-9]|19[89])\d{8}$/
@@ -65,7 +53,19 @@ const isPasswordLegal = password => {
 	return re.test(password)
 }
 
-//*********** 其它 *********
+//*********** 数据类型 *********
+
+// 判断是否是JSON字符串
+const isJsonString = str => {
+	try {
+		if (typeof JSON.parse(str) == 'object') {
+			return true
+		}
+	} catch (err) {
+		console.error(err)
+		return false
+	}
+}
 
 // 判断输入的内容是否为空
 // val ==null的时候，val === undefined 会报错
