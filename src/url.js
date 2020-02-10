@@ -8,6 +8,15 @@ const getQueryString = (name, url) => {
 	return r != null ? unescape(r[2]) : null
 }
 
+// 拼接url和参数
+const createURL = (url, paramsObject) => {
+	url += '?'
+	Object.keys(paramsObject).forEach(key => {
+		url += key + '=' + paramsObject[key] + '&'
+	})
+	return url.substring(0, url.lastIndexOf('&'))
+}
+
 // 获取html页面名
 const getHtmlDocName = () => {
 	let str = location.href
@@ -23,4 +32,4 @@ const reloadPage = () => {
 	location.href += queryStr + 't=' + new Date().getTime()
 }
 
-export { getHtmlDocName, getQueryString, reloadPage }
+export { getHtmlDocName, createURL, getQueryString, reloadPage }
