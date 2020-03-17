@@ -42,29 +42,14 @@ const delay = time =>
 // 提取数字
 const getNum = str => str.match(/[0-9]+/g)
 
-// 事件池
-class Event {
-	constructor() {
-		this.events = {}
-	}
-	//监听
-	on(eventName, callBack) {
-		if (this.events[eventName]) {
-			//存在事件
-			this.events[eventName].push(callBack)
-		} else {
-			//不存在事件
-			this.events[eventName] = [callBack]
-		}
-	}
-	//触发
-	emit(eventName, params) {
-		if (this.events[eventName]) {
-			this.events[eventName].map(callBack => {
-				callBack(params)
-			})
-		}
-	}
+// 生成指定长度的有序整数数字数组
+// 0-100
+const getNumArr = len => Array(len).fill('').map(el => ~~(Math.random() * 100))
+
+module.exports = {
+	timeTaken,
+	getNumArr
 }
+
 
 export { countdown, filterEmoji, getNum, timeTaken, delay, Event, getType }

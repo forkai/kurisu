@@ -3,7 +3,7 @@ import resolve from 'rollup-plugin-node-resolve'
 import babel from 'rollup-plugin-babel'
 
 export default {
-	input: './index.js',
+	input: './index.ts',
 	output: [
 		{
 			// 给html项目使用

@@ -11,7 +11,7 @@
 class Base64 {
 	constructor() {
 		// private property
-		_keyStr =
+		const _keyStr =
 			'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/='
 		// public method for encoding
 		this.encode = function(input) {
