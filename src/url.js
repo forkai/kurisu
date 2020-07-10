@@ -1,7 +1,7 @@
 //******** 3 url********
 
 // 获取URL地址参数
-const getQueryString = (name, url) => {
+const getQueryString = (name = '', url = '') => {
 	const re = new RegExp('(^|&)' + name + '=([^&]*)(&|$)', 'i')
 	url = !url || url == '' ? location.search : url.substring(url.indexOf('?'))
 	r = url.substr(1).match(re)
@@ -9,7 +9,7 @@ const getQueryString = (name, url) => {
 }
 
 // 拼接url和参数
-const createURL = (url, paramsObject) => {
+const createURL = (url = '', paramsObject = {}) => {
 	url += '?'
 	Object.keys(paramsObject).forEach(key => {
 		url += key + '=' + paramsObject[key] + '&'
