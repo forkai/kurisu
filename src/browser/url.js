@@ -8,6 +8,15 @@ const getQueryString = (name = '', url = '') => {
 	return r != null ? unescape(r[2]) : null
 }
 
+const getURLParameters = url =>
+	url.match(/([^?=&]+)(=([^&]*))/g)
+	.reduce((a, v) => (a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1), a), {})
+let urlParameters = getURLParameters(location.href)
+parameString = "";
+for (key in urlParameters) {
+	parameString += key + "=" + urlParameters[key] + "&";
+}
+
 // 拼接url和参数
 const createURL = (url = '', paramsObject = {}) => {
 	url += '?'
